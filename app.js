@@ -13,6 +13,13 @@ const appTimer = () => {
 
         const updateSeconds = () => {
             // Function code here.
+            const minuteDiv = document.querySelector(".minutes");
+            const secondDiv = document.querySelector(".seconds");
+
+            totalSeconds--;
+
+            let minutesLeft = Math.floor(totalSeconds / 60);
+            let secondsLeft = totalSeconds % 60;
         };
         myInterval = setInterval(updateSeconds, 1000);
     }else {
