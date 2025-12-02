@@ -6,4 +6,11 @@ let state = true;
 
 const appTimer = () => {
     const sessionAmount = Number.parseInt(session.textContent);
+    
+    if (state) {
+        state = false;
+        let totalSeconds = sessionAmount * 60;
+
+        
+    }
 }
