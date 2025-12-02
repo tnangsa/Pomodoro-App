@@ -1,4 +1,4 @@
-# Pomodor App
+# Pomodoro App
 
 ### Create index.html, style.css, & app.js files
 
