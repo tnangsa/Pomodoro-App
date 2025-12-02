@@ -11,6 +11,9 @@ const appTimer = () => {
         state = false;
         let totalSeconds = sessionAmount * 60;
 
-        
+        const updateSeconds = () => {
+            // Function code here.
+        };
+        myInterval = setInterval(updateSeconds, 1000);
     }
 }
