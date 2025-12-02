@@ -27,8 +27,13 @@ const appTimer = () => {
                 secondDiv.textContent = secondsLeft;
             } 
             minuteDiv.textContent = `${minutesLeft}`;
+
+            if (minutesLeft === 0 && secondsLeft === 0) {
+                bells.play();
+                clearInterval(myInterval);
+            }
         };
-        
+
         myInterval = setInterval(updateSeconds, 1000);
     }else {
         alert("Session has already started");
