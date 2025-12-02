@@ -15,5 +15,7 @@ const appTimer = () => {
             // Function code here.
         };
         myInterval = setInterval(updateSeconds, 1000);
+    }else {
+        alert("Session has already started");
     }
-}
+};
