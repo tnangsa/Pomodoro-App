@@ -34,13 +34,13 @@ const updateTimer = () => {
 };
 
 const startTimer = () => {
-    const timerAmount = Number.parseInt(timer.textContent);
+    const timerAmount = Number.parseInt(minutesDisplay.textContent);
     
     if (state) {
         state = false;
     
         //initialize totalSeconds only if its the start of a new timer
-        if (totalSeconds === undefined || totalSec) {
+        if (totalSeconds === undefined || totalSeconds === 0) {
             initialTimerAmount = timerAmount; //store the initial value
             totalSeconds = timerAmount * 60;
         }
@@ -63,9 +63,22 @@ const stopTimer = () => {
 
 const resetTimer = () => {
     clearInterval(myInterval);
-    timeLeft = 1500;
-    updateSeconds();
-}
+    state = true; //allows timer to be started again
+    
+    //resets initial timer amount or a default if its not set
+    if (initialTimerAmount !== undefined) {
+        totalSeconds = initialTimerAmount * 60;
+    }else {
+        // uses current value on page if not started yet
+        totalSeconds = Number.parseInt(timer.textContent) * 60;
+    }
+
+    //manually update the display to show the reset time
+    minutesDisplay.textContent = `${Math.floor(totalSeconds / 60)}`;
+    secondsDisplay.textContent = "00";
+
+    
+};
 
 startBtn.addEventListener("click", startTimer);
 stopBtn.addEventListener("click", stopTimer);
