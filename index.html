@@ -16,20 +16,33 @@
 <div class="app-container">
     <h1>Pomodoro</h1>
     <div class="app-message">press start to begin</div>
+    <h2 class="mode-label">Mode</h2>
+
+
     <div class="app-circle">
+        
         <div class="circle-shape">
             <div class="semi-circle right-side circle-mask"></div>
             <div class="semi-circle right-side circle"></div>
             <div class="semi-circle left-side circle-mask"></div>
             <div class="semi-circle left-side circle"></div>
         </div>
+       
         <div class="app-counter-box">
-            <p><span class="minutes">25</span>:<span class="seconds">00</span></p>
+            <p>
+                 <span class="minutes">25</span><span class="separator">:</span><span class="seconds">00</span>
+            </p>
         </div>
+
         <button class="btn-start">start</button>
         <button class="btn-stop">stop</button>
         <button class="btn-reset">reset</button>
+        <button class="btn-skip">skip</button>
+
     </div>
+
+     <span id="session-display">0 / 4</span>
+
 </div>
 </body>
  <script src="./app.js"></script>

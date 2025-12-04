@@ -36,7 +36,9 @@ p {
     margin: 0 auto;
     width: 200px;
     height: 200px;
+    transition: background-color 0.8s ease-in-out;
 }
+
 
 .circle-shape {
     pointer-events: none;
