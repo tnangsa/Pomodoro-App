@@ -31,6 +31,22 @@ p {
     padding: 20px;
 }
 
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.app-circle.is-pulsing {
+    animation: pulse 8s ease-in-out infinite;
+}
+
 .app-circle {
     position: relative;
     margin: 0 auto;

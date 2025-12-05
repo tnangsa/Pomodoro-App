@@ -33,6 +33,7 @@ const switchMode = () => {
     clearInterval(myInterval);
     bells.play();
 
+
     if (currentMode === "work") {
         workSessionsCompleted++; //increments completed sessions
         
@@ -68,6 +69,11 @@ const switchMode = () => {
         newLabel = "SHORT BREAK";
         appContainer.classList.add('break-mode');
         console.log("Starting Short Break");
+
+        
+    appContainer.classList.add('is-pulsing');
+
+
     }else {
         newMinutes = LONG_BREAK_MINUTES;
         newLabel = "LONG BREAK";
@@ -134,14 +140,16 @@ const startTimer = () => {
             totalSeconds = timerAmount * 60;
             currentMode = "work";
 
-            workSessionsCompleted = 0;
+           
+
+            modeDisplay.textContent = "WORK SESSION";
+            //sessionDisplay.textContent = `${workSessionsCompleted} / ${POMODOROS_BEFORE_LONG_BREAK}`;
+        
+            appContainer.classList.remove('break-mode', 'long-break-mode', 'is-pulsing');
+            appContainer.classList.add('work-mode');
         }
 
-        modeDisplay.textContent = "WORK SESSION";
-        sessionDisplay.textContent = `${workSessionsCompleted} / ${POMODOROS_BEFORE_LONG_BREAK}`;
         
-        appContainer.classList.remove('break-mode', 'long-break-mode');
-        appContainer.classList.add('work-mode');
 
        
         myInterval = setInterval(updateTimer, 1000);
@@ -155,6 +163,7 @@ const startTimer = () => {
 const stopTimer = () => {
     clearInterval(myInterval);
     state = true; //allows timer to be started again from the stopped point
+    appContainer.classList.remove('is-pulsing');
 };
 
 const resetTimer = () => {
@@ -175,7 +184,7 @@ const resetTimer = () => {
     secondsDisplay.textContent = "00";
 
     modeDisplay.textContent = "WORK SESSION";
-    appContainer.classList.remove('break-mode', 'long-break-mode'); 
+    appContainer.classList.remove('break-mode', 'long-break-mode', 'is-pulsing'); 
     appContainer.classList.add('work-mode');
 
     workSessionsCompleted = 0;
