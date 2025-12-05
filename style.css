@@ -44,7 +44,7 @@ p {
 }
 
 .app-circle.is-pulsing {
-    animation: pulse 8s ease-in-out infinite;
+    animation: pulse 10s ease-in-out infinite;
 }
 
 .app-circle {

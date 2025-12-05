@@ -164,6 +164,7 @@ const stopTimer = () => {
     clearInterval(myInterval);
     state = true; //allows timer to be started again from the stopped point
     appContainer.classList.remove('is-pulsing');
+    
 };
 
 const resetTimer = () => {
@@ -199,7 +200,9 @@ const resetTimer = () => {
 const skipToBreak = () => {
     if (currentMode === 'work') {
         switchMode();
-    } else {
+    } else if (currentMode === 'break') {
+        switchMode();
+    }else {
         alert("Cannot skip during a break.");
     }
 };
